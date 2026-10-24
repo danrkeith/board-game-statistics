@@ -44,6 +44,9 @@ export default defineConfig([
             '@stylistic/jsx-indent-props': ['error', 4],
             '@stylistic/indent-binary-ops': ['error', 4],
             '@stylistic/brace-style': ['error', '1tbs'],
+            '@stylistic/no-trailing-spaces': ['error', {
+                skipBlankLines: true,
+            }],
         },
     },
 ])
