@@ -11,7 +11,11 @@ const apiGetUserAuthorities = (jwt: string, id: number): Promise<Set<Authority>>
         .then(authorities => new Set(authorities));
 
 const apiEditUserAuthorities = (jwt: string, body: EditUserAuthoritiesRequest): Promise<Set<Authority>> =>
-    returnDataFrom<Authority[]>(() => apiPut({ endpoint: `/users/${body.id}/authorities`, jwt, body: Array.from(body.authorities) }))
+    returnDataFrom<Authority[]>(() => apiPut({
+        endpoint: `/users/${body.id}/authorities`,
+        jwt,
+        body: Array.from(body.authorities),
+    }))
         .then(authorities => new Set(authorities));
 
 export { apiGetUserAuthorities, apiEditUserAuthorities };

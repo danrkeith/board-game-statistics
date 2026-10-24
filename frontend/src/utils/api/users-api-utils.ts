@@ -34,10 +34,12 @@ const apiEditMe = (jwt: string, body: EditMeRequest): Promise<User> =>
     returnDataFrom<User>(() => apiPut({ endpoint: `${baseEndpoint}/me`, jwt, body }));
 
 const apiEditUser = (jwt: string, body: EditUserRequest): Promise<User> =>
-    returnDataFrom<User>(() => apiPut({ endpoint: `${baseEndpoint}/${body.id}`, jwt, body: {
-        firstName: body.firstName,
-        lastName: body.lastName,
-    } }));
+    returnDataFrom<User>(() => apiPut({
+        endpoint: `${baseEndpoint}/${body.id}`, jwt, body: {
+            firstName: body.firstName,
+            lastName: body.lastName,
+        },
+    }));
 
 const apiDeleteUser = (jwt: string, id: number): Promise<void> =>
     returnVoidFrom(() => apiDelete({ endpoint: `${baseEndpoint}/${id}`, jwt }));

@@ -1,19 +1,17 @@
 import React from 'react';
 import { Button, Form, Modal, Spinner } from 'react-bootstrap';
 
-type ModalOrFormProps = (
-    {
-        as?: 'form';
-        title?: never;
-        show?: never;
-        handleClose?: never;
-    } | {
-        as: 'modal';
-        title: string;
-        show: boolean;
-        handleClose: () => void;
-    }
-);
+type ModalOrFormProps = {
+    as?: 'form';
+    title?: never;
+    show?: never;
+    handleClose?: never;
+} | {
+    as: 'modal';
+    title: string;
+    show: boolean;
+    handleClose: () => void;
+};
 
 type ModalFormProps = {
     children: React.ReactNode;
@@ -23,7 +21,19 @@ type ModalFormProps = {
     handleSubmission: (event: React.FormEvent) => void;
 } & ModalOrFormProps;
 
-const FlexibleForm = ({ children, submitButtonText, isLoading, isValid, handleSubmission, as, title, show, handleClose }: ModalFormProps) => {
+const FlexibleForm = (
+    {
+        children,
+        submitButtonText,
+        isLoading,
+        isValid,
+        handleSubmission,
+        as,
+        title,
+        show,
+        handleClose,
+    }: ModalFormProps,
+) => {
     const submitButton = (
         <Button variant="primary" type="submit" disabled={isLoading || !(isValid ?? true)}>
             {submitButtonText}

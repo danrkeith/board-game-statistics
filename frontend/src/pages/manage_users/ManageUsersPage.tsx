@@ -27,7 +27,10 @@ interface UsersReducerActionRemove {
     userId: number;
 }
 
-type UsersReducerAction = UsersReducerActionSetAll | UsersReducerActionUpdate | UsersReducerActionAdd | UsersReducerActionRemove;
+type UsersReducerAction = UsersReducerActionSetAll
+    | UsersReducerActionUpdate
+    | UsersReducerActionAdd
+    | UsersReducerActionRemove;
 
 const ManageUsersPage = () => {
     const { isLoading, isAuthenticated, callWithAuth } = useContext(AuthContext);
@@ -77,7 +80,11 @@ const ManageUsersPage = () => {
                         <Button onClick={() => setAction('CREATE_USER')}>Create user</Button>
                     </>
                 )}
-            <CreateUserModal show={action === 'CREATE_USER'} submitCallback={user => usersDispatch({ type: 'ADD', user })} handleClose={() => setAction(null)} />
+            <CreateUserModal
+                show={action === 'CREATE_USER'}
+                submitCallback={user => usersDispatch({ type: 'ADD', user })}
+                handleClose={() => setAction(null)}
+            />
         </div>
     );
 };

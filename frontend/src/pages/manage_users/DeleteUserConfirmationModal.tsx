@@ -12,7 +12,14 @@ interface DeleteUserConfirmationModalProps {
     handleClose: () => void;
 }
 
-const DeleteUserConfirmationModal = ({ show, user, confirmCallback, handleClose }: DeleteUserConfirmationModalProps) => {
+const DeleteUserConfirmationModal = (
+    {
+        show,
+        user,
+        confirmCallback,
+        handleClose,
+    }: DeleteUserConfirmationModalProps,
+) => {
     const { callWithAuth } = useContext(AuthContext);
 
     const [isLoading, setIsLoading] = useState(false);

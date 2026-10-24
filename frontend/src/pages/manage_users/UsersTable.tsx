@@ -35,13 +35,16 @@ const UsersTable = ({ users, usersDispatch }: UsersTableProps) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user: User) => (
-                        <UserRow
-                            user={user}
-                            handleUserAction={setUserAction}
-                            key={user.id}
-                        />
-                    ))}
+                    {
+                        users.map(
+                            (user: User) => (
+                                <UserRow
+                                    user={user}
+                                    handleUserAction={setUserAction}
+                                    key={user.id}
+                                />
+                            ))
+                    }
                 </tbody>
             </Table>
             <EditUserModal
