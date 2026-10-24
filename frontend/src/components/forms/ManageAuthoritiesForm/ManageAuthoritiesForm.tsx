@@ -55,8 +55,7 @@ const ManageAuthoritiesForm = (props: ManageAuthoritiesFormProps) => {
 
             if (value) {
                 newAuthorities.add(authority);
-            }
-            else {
+            } else {
                 newAuthorities.delete(authority);
                 removeDependents(authority);
             }

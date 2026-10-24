@@ -7,41 +7,43 @@ import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommendedTypeChecked,
-      tseslint.configs.stylisticTypeChecked,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
-      stylistic.configs.recommended,
-    ],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-      parserOptions: {
-        projectService: true
-      }
-    },
-    plugins: {
-      '@stylistic': stylistic
-    },
-    rules: {
-      '@stylistic/indent': ['error', 4],
-      '@stylistic/semi': ['error', 'always'],
-      '@stylistic/member-delimiter-style': ['error', {
-        multiline: {
-          delimiter: 'semi',
-          requireLast: true
+    globalIgnores(['dist']),
+    {
+        files: ['**/*.{ts,tsx}'],
+        extends: [
+            js.configs.recommended,
+            tseslint.configs.recommendedTypeChecked,
+            tseslint.configs.stylisticTypeChecked,
+            reactHooks.configs['recommended-latest'],
+            reactRefresh.configs.vite,
+            stylistic.configs.recommended,
+        ],
+        languageOptions: {
+            ecmaVersion: 2020,
+            globals: globals.browser,
+            parserOptions: {
+                projectService: true,
+            },
         },
-        singleline: {
-          delimiter: 'semi',
-          requireLast: false
-        }
-      }],
-      '@stylistic/jsx-indent-props': ['error', 4],
-    }
-  },
+        plugins: {
+            '@stylistic': stylistic,
+        },
+        rules: {
+            '@stylistic/indent': ['error', 4],
+            '@stylistic/semi': ['error', 'always'],
+            '@stylistic/member-delimiter-style': ['error', {
+                multiline: {
+                    delimiter: 'semi',
+                    requireLast: true,
+                },
+                singleline: {
+                    delimiter: 'semi',
+                    requireLast: false,
+                },
+            }],
+            '@stylistic/jsx-indent-props': ['error', 4],
+            '@stylistic/indent-binary-ops': ['error', 4],
+            '@stylistic/brace-style': ['error', '1tbs'],
+        },
+    },
 ])

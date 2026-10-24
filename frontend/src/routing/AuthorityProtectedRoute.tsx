@@ -11,11 +11,12 @@ const AuthorityProtectedRoute = ({ requiredAuthorities }: AuthorityProtectedRout
     const { isLoading, user, authorities } = useContext(UserContext);
 
     return (
-        <ProtectedRoute isAuthenticated={
-            isLoading || (user !== null && requiredAuthorities.every(
-                auth => authorities.has(auth),
-            ))
-        }
+        <ProtectedRoute
+            isAuthenticated={
+                isLoading || (user !== null && requiredAuthorities.every(
+                    auth => authorities.has(auth),
+                ))
+            }
         />
     );
 };

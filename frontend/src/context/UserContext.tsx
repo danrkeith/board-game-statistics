@@ -1,6 +1,6 @@
 import type React from 'react';
-import type { Authority, User } from '../utils/types';
 import { createContext, useContext, useEffect, useState } from 'react';
+import type { Authority, User } from '../utils/types';
 import { AuthContext } from './AuthContext';
 import { apiGetMe } from '../utils/api/users-api-utils';
 import { apiGetUserAuthorities } from '../utils/api/user-authorities-api-utils';

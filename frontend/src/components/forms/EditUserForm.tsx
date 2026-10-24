@@ -43,8 +43,7 @@ const EditUserForm = (props: EditUserFormProps) => {
             .then(() => {
                 if (handleClose) {
                     handleClose();
-                }
-                else {
+                } else {
                     setShowSuccess(true);
                 }
             })

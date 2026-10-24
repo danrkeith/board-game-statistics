@@ -8,7 +8,9 @@ interface AuthContextType {
     isAuthenticated: boolean;
     login: (credentials: Credentials) => Promise<void>;
     logout: () => void;
+
     callWithAuth<ResT>(this: void, apiFunc: (jwt: string) => Promise<ResT>): Promise<ResT>;
+
     callWithAuth<ReqT, ResT>(this: void, apiFunc: (jwt: string, body: ReqT) => Promise<ResT>, body: ReqT): Promise<ResT>;
 }
 
